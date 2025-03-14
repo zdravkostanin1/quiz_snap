@@ -7,6 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: Color(0xffFBF8EF),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(top: 25.0, left: 25.0),
@@ -24,7 +25,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15.0),
-              QuizCard(hasBegunQuiz: false),
+              QuizCard(hasBegunQuiz: true),
             ],
           ),
         ),
