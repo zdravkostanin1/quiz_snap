@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snap_quiz/features/home/widgets/quiz_card.dart';
+import 'package:snap_quiz/features/home/widgets/featured_collections_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -25,7 +26,9 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15.0),
-              QuizCard(hasBegunQuiz: true),
+              QuizCard(hasBegunQuiz: false),
+              SizedBox(height: 15.0),
+              FeaturedCollections(),
             ],
           ),
         ),
