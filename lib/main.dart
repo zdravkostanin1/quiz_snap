@@ -40,9 +40,7 @@ class QuizPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15.0),
-              QuizCard(hasBegunQuiz: true),
-              SizedBox(height: 15.0),
-              QuickActions(),
+              QuizCard(hasBegunQuiz: false),
             ],
           ),
         ),
@@ -52,7 +50,8 @@ class QuizPage extends StatelessWidget {
 }
 
 class QuickActions extends StatelessWidget {
-  const QuickActions({super.key});
+  final bool hasBegunQuiz;
+  const QuickActions({super.key, required this.hasBegunQuiz});
 
   @override
   Widget build(BuildContext context) {
@@ -203,6 +202,8 @@ class QuizCard extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(height: 15.0),
+                  QuickActions(hasBegunQuiz: hasBegunQuiz),
                 ],
               )
               : Container(
