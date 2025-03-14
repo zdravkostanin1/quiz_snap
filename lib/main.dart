@@ -159,39 +159,47 @@ class QuizCard extends StatelessWidget {
                       height: 150.0,
                     ),
                     SizedBox(height: 20.0),
-                    Container(
-                      width: 250,
-                      height: 45,
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "START SNAPPING",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15.5,
-                            fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      // TODO: Implement
+                      onTap: () {},
+                      child: Container(
+                        width: 250,
+                        height: 45,
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "START SNAPPING",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15.5,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
                     ),
                     SizedBox(height: 20.0),
-                    Container(
-                      width: 250,
-                      height: 45,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "BROWSE COLLECTIONS",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15.5,
-                            fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      // TODO: Implement
+                      onTap: () {},
+                      child: Container(
+                        width: 250,
+                        height: 45,
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "BROWSE COLLECTIONS",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15.5,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
