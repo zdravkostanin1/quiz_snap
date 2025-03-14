@@ -11,13 +11,13 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: QuizScreen(),
+      home: QuizPage(),
     );
   }
 }
 
-class QuizScreen extends StatelessWidget {
-  const QuizScreen({super.key});
+class QuizPage extends StatelessWidget {
+  const QuizPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class QuizCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 0.0, left: 0, right: 30.0),
       child: Container(
         width: double.infinity,
-        height: 350,
+        height: 480,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.circular(20),
@@ -75,23 +75,18 @@ class QuizCard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10.0),
-              Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, top: 14.0),
-                  child: Text(
-                    "What is the capital of Nigeria?",
-                    style: TextStyle(color: Colors.black, fontSize: 15.5),
-                  ),
+              Padding(
+                padding: const EdgeInsets.only(left: 3.0, right: 8.0),
+                child: Text(
+                  "In which anime series does the character Naruto Uzumaki appear?",
+                  style: TextStyle(color: Colors.white, fontSize: 15.5),
+                  maxLines: 2,
                 ),
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: 15.0),
               CategoriesWidget(),
+              SizedBox(height: 15.0),
+              AnswerOptionsWidget(),
             ],
           ),
         ),
@@ -139,6 +134,79 @@ class CategoriesWidget extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class AnswerOptionsWidget extends StatelessWidget {
+  const AnswerOptionsWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Options', style: TextStyle(color: Colors.white, fontSize: 17.0)),
+        SizedBox(height: 15.0),
+        AnswerOptionWidget(
+          answerText: "Naruto",
+          isCorrect: true,
+          onTap: (isCorrect) => print(isCorrect),
+        ),
+        SizedBox(height: 10.0),
+        AnswerOptionWidget(
+          answerText: "One Piece",
+          isCorrect: false,
+          onTap: (isCorrect) => print(isCorrect),
+        ),
+        SizedBox(height: 10.0),
+        AnswerOptionWidget(
+          answerText: "Dragon Ball Z",
+          isCorrect: false,
+          onTap: (isCorrect) => print(isCorrect),
+        ),
+        SizedBox(height: 10.0),
+        AnswerOptionWidget(
+          answerText: "Attack on Titan",
+          isCorrect: false,
+          onTap: (isCorrect) => print(isCorrect),
+        ),
+      ],
+    );
+  }
+}
+
+class AnswerOptionWidget extends StatelessWidget {
+  final String answerText;
+  final bool isCorrect;
+  final Function onTap;
+
+  const AnswerOptionWidget({
+    super.key,
+    required this.answerText,
+    required this.isCorrect,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => onTap(isCorrect),
+      child: Container(
+        width: double.infinity,
+        height: 50,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8.0, top: 14.0),
+          child: Text(
+            answerText,
+            style: TextStyle(color: Colors.black, fontSize: 15.5),
+          ),
+        ),
+      ),
     );
   }
 }
