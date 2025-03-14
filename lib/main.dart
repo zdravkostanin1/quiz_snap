@@ -39,7 +39,7 @@ class QuizPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15.0),
-              QuizCard(hasBegunQuiz: false),
+              QuizCard(hasBegunQuiz: true),
             ],
           ),
         ),
@@ -59,84 +59,128 @@ class QuizCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 0.0, left: 0, right: 30.0),
       child:
           hasBegunQuiz
-              ? Container(
-                width: double.infinity,
-                height: 525,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 3.0),
-                        child: Text(
-                          "Q:",
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+              ? Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Question 1 of 10",
+                          style: TextStyle(
+                            color: Colors.blueGrey,
+                            fontSize: 17.0,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10.0),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 3.0, right: 8.0),
-                        child: Text(
-                          "In which anime series does the character Naruto Uzumaki appear?",
-                          style: TextStyle(color: Colors.white, fontSize: 15.5),
-                          maxLines: 2,
-                        ),
-                      ),
-                      SizedBox(height: 15.0),
-                      CategoriesWidget(),
-                      SizedBox(height: 15.0),
-                      AnswerOptionsWidget(),
-                      SizedBox(height: 20.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  Container(
+                    width: double.infinity,
+                    height: 525,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            width: 80,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "BACK",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15.5,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 3.0),
+                            child: Text(
+                              "Q:",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20.0,
                               ),
                             ),
                           ),
-                          SizedBox(width: 15),
-                          Container(
-                            width: 130,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(10.0),
+                          SizedBox(height: 10.0),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 3.0,
+                              right: 8.0,
                             ),
-                            child: Center(
-                              child: Text(
-                                "NEXT",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.5,
-                                  fontWeight: FontWeight.bold,
+                            child: Text(
+                              "In which anime series does the character Naruto Uzumaki appear?",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.5,
+                              ),
+                              maxLines: 2,
+                            ),
+                          ),
+                          SizedBox(height: 15.0),
+                          CategoriesWidget(),
+                          SizedBox(height: 15.0),
+                          AnswerOptionsWidget(),
+                          SizedBox(height: 20.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              GestureDetector(
+                                child: Text(
+                                  'SKIP',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.0,
+                                  ),
                                 ),
                               ),
-                            ),
+                              SizedBox(width: 20),
+                              Container(
+                                width: 80,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "BACK",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15.5,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 20),
+                              Container(
+                                width: 130,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: Colors.blueGrey,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "NEXT",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15.5,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               )
               : Container(
                 width: double.infinity,
