@@ -166,14 +166,14 @@ class QuizCard extends StatelessWidget {
                         width: 250,
                         height: 45,
                         decoration: BoxDecoration(
-                          color: Colors.red,
+                          color: Color(0xffF7F7F7),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Center(
                           child: Text(
                             "START SNAPPING",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 15.5,
                               fontWeight: FontWeight.bold,
                             ),
@@ -189,12 +189,12 @@ class QuizCard extends StatelessWidget {
                         width: 250,
                         height: 45,
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: Color(0xffFFB22C),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Center(
                           child: Text(
-                            "BROWSE COLLECTIONS",
+                            "SEE ALL COLLECTIONS",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 15.5,
