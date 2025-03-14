@@ -67,7 +67,29 @@ class QuizCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Q:", style: TextStyle(color: Colors.white, fontSize: 20.0)),
+              Padding(
+                padding: const EdgeInsets.only(left: 3.0),
+                child: Text(
+                  "Q:",
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0, top: 14.0),
+                  child: Text(
+                    "What is the capital of Nigeria?",
+                    style: TextStyle(color: Colors.black, fontSize: 15.5),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
