@@ -40,7 +40,7 @@ class QuizPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15.0),
-              QuizCard(hasBegunQuiz: false),
+              QuizCard(hasBegunQuiz: true),
             ],
           ),
         ),
@@ -185,15 +185,25 @@ class QuizCard extends StatelessWidget {
                                   ), // TODO: When an answer is selected, change color to a brighther blue
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    "NEXT",
-                                    style: TextStyle(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    // TODO: Leave Text widget, or nah?
+                                    // Center(
+                                    //   child: Text(
+                                    //     "NEXT",
+                                    //     style: TextStyle(
+                                    //       color: Colors.white,
+                                    //       fontSize: 15.5,
+                                    //       fontWeight: FontWeight.bold,
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                    Icon(
+                                      LucideIcons.arrowRight,
                                       color: Colors.white,
-                                      fontSize: 15.5,
-                                      fontWeight: FontWeight.bold,
                                     ),
-                                  ),
+                                  ],
                                 ),
                               ),
                             ],
