@@ -57,7 +57,7 @@ class QuizCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 0.0, left: 0, right: 30.0),
       child: Container(
         width: double.infinity,
-        height: 600,
+        height: 530,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.circular(20),
@@ -87,21 +87,48 @@ class QuizCard extends StatelessWidget {
               CategoriesWidget(),
               SizedBox(height: 15.0),
               AnswerOptionsWidget(),
-              SizedBox(height: 15.0),
-              Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 0.0, top: 12.0),
-                  child: Text(
-                    "asd",
-                    style: TextStyle(color: Colors.black, fontSize: 15.5),
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 80,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "BACK",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15.5,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(width: 15),
+                  Container(
+                    width: 130,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "NEXT",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.5,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
