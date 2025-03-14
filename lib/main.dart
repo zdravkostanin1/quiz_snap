@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:snap_quiz/features/home/pages/home_page.dart';
-import 'package:snap_quiz/features/home/widgets/quiz_card.dart';
 
 void main() {
   runApp(const App());
