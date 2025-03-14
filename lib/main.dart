@@ -199,12 +199,18 @@ class AnswerOptionWidget extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(10.0),
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 8.0, top: 14.0),
-          child: Text(
-            answerText,
-            style: TextStyle(color: Colors.black, fontSize: 15.5),
-          ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Radio(value: false, groupValue: [], onChanged: (value) {}),
+            Padding(
+              padding: const EdgeInsets.only(left: 0.0, top: 12.0),
+              child: Text(
+                answerText,
+                style: TextStyle(color: Colors.black, fontSize: 15.5),
+              ),
+            ),
+          ],
         ),
       ),
     );
