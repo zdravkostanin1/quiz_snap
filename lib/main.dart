@@ -39,7 +39,7 @@ class QuizPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 15.0),
-              QuizCard(),
+              QuizCard(hasBegunQuiz: false),
             ],
           ),
         ),
@@ -49,91 +49,156 @@ class QuizPage extends StatelessWidget {
 }
 
 class QuizCard extends StatelessWidget {
-  const QuizCard({super.key});
+  final bool hasBegunQuiz;
+
+  const QuizCard({super.key, required this.hasBegunQuiz});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 0.0, left: 0, right: 30.0),
-      child: Container(
-        width: double.infinity,
-        height: 525,
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 3.0),
-                child: Text(
-                  "Q:",
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+      child:
+          hasBegunQuiz
+              ? Container(
+                width: double.infinity,
+                height: 525,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ),
-              SizedBox(height: 10.0),
-              Padding(
-                padding: const EdgeInsets.only(left: 3.0, right: 8.0),
-                child: Text(
-                  "In which anime series does the character Naruto Uzumaki appear?",
-                  style: TextStyle(color: Colors.white, fontSize: 15.5),
-                  maxLines: 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 3.0),
+                        child: Text(
+                          "Q:",
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        ),
+                      ),
+                      SizedBox(height: 10.0),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 3.0, right: 8.0),
+                        child: Text(
+                          "In which anime series does the character Naruto Uzumaki appear?",
+                          style: TextStyle(color: Colors.white, fontSize: 15.5),
+                          maxLines: 2,
+                        ),
+                      ),
+                      SizedBox(height: 15.0),
+                      CategoriesWidget(),
+                      SizedBox(height: 15.0),
+                      AnswerOptionsWidget(),
+                      SizedBox(height: 20.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 80,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "BACK",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15.5,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 15),
+                          Container(
+                            width: 130,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "NEXT",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15.5,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 15.0),
-              CategoriesWidget(),
-              SizedBox(height: 15.0),
-              AnswerOptionsWidget(),
-              SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 80,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0),
+              )
+              : Container(
+                width: double.infinity,
+                height: 525,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Are you ready to learn today?",
+                      style: TextStyle(color: Colors.white, fontSize: 15.0),
                     ),
-                    child: Center(
-                      child: Text(
-                        "BACK",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.5,
-                          fontWeight: FontWeight.bold,
+                    SizedBox(height: 20.0),
+                    Image.asset(
+                      'assets/images/chick.png',
+                      width: 150.0,
+                      height: 150.0,
+                    ),
+                    SizedBox(height: 20.0),
+                    Container(
+                      width: 250,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "START SNAPPING",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.5,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 15),
-                  Container(
-                    width: 130,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "NEXT",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15.5,
-                          fontWeight: FontWeight.bold,
+                    SizedBox(height: 20.0),
+                    Container(
+                      width: 250,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "BROWSE COLLECTIONS",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.5,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
