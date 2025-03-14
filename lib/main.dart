@@ -57,7 +57,7 @@ class QuizCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 0.0, left: 0, right: 30.0),
       child: Container(
         width: double.infinity,
-        height: 530,
+        height: 525,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.circular(20),
