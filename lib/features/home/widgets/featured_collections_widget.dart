@@ -7,7 +7,6 @@ class FeaturedCollections extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      // mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
@@ -36,6 +35,7 @@ class FeaturedCollections extends StatelessWidget {
                 title: "Anime",
                 iconData: LucideIcons.cat,
               ),
+              SizedBox(width: 15.0),
             ],
           ),
         ),
@@ -57,11 +57,11 @@ class FeatureCollectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 140,
-      height: 140,
+      width: 140.0,
+      height: 140.0,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.0),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
