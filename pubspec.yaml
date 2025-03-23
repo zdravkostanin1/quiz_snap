@@ -38,6 +38,7 @@ dependencies:
   lucide_icons: ^0.257.0
   flutter_bloc: ^9.1.0
   html: ^0.15.5
+  html_unescape: ^2.0.0
 
 dev_dependencies:
   flutter_test:

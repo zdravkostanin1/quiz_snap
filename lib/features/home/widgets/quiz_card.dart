@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:html_unescape/html_unescape.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:snap_quiz/features/home/bloc/bloc/home_bloc.dart';
 import 'package:snap_quiz/features/home/widgets/answer_options_widget.dart';
@@ -11,6 +12,7 @@ class QuizCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var unescape = HtmlUnescape();
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Padding(
@@ -34,7 +36,7 @@ class QuizCard extends StatelessWidget {
               SizedBox(height: 10.0),
               Container(
                 width: double.infinity,
-                height: 525,
+                height: 550,
                 decoration: BoxDecoration(
                   color: Colors.black,
                   borderRadius: BorderRadius.circular(20),
@@ -55,9 +57,11 @@ class QuizCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 3.0, right: 8.0),
                         child: Text(
-                          state.quizzes[state.currentQuestionIndex].question,
+                          unescape.convert(
+                            state.quizzes[state.currentQuestionIndex].question,
+                          ),
                           style: TextStyle(color: Colors.white, fontSize: 15.5),
-                          maxLines: 2,
+                          maxLines: 3,
                         ),
                       ),
                       SizedBox(height: 15.0),
