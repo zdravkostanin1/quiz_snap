@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
@@ -12,6 +13,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
     on<HomeEvent>((event, emit) {});
     on<StartQuiz>(_onStartQuiz);
+    on<NextQuestion>(_onNextQuestion);
   }
 
   // Begin the quiz.
@@ -32,5 +34,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // Emit the QuizStarted state with the fetched questions.
       emit(QuizStarted(hasBegunQuiz: true, quizzes: questions));
     }
+  }
+
+  FutureOr<void> _onNextQuestion(NextQuestion event, Emitter<HomeState> emit) {
+    emit(state.copyWith(currentQuestionIndex: state.currentQuestionIndex + 1));
   }
 }

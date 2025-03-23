@@ -36,7 +36,6 @@ class QuizCard extends StatelessWidget {
               SizedBox(height: 10.0),
               Container(
                 width: double.infinity,
-                height: 550,
                 decoration: BoxDecoration(
                   color: Colors.black,
                   borderRadius: BorderRadius.circular(20),
@@ -61,7 +60,7 @@ class QuizCard extends StatelessWidget {
                             state.quizzes[state.currentQuestionIndex].question,
                           ),
                           style: TextStyle(color: Colors.white, fontSize: 15.5),
-                          maxLines: 3,
+                          maxLines: 4,
                         ),
                       ),
                       SizedBox(height: 15.0),
@@ -101,23 +100,28 @@ class QuizCard extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 20),
-                          Container(
-                            width: 130,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Color(
-                                0xffA9B5DF,
-                              ), // TODO: When an answer is selected, change color to a brighther blue
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  LucideIcons.arrowRight,
-                                  color: Colors.white,
-                                ),
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              context.read<HomeBloc>().add(NextQuestion());
+                            },
+                            child: Container(
+                              width: 130,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Color(
+                                  0xffA9B5DF,
+                                ), // TODO: When an answer is selected, change color to a brighther blue
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    LucideIcons.arrowRight,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],

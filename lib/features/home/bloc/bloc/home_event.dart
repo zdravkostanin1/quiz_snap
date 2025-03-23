@@ -6,3 +6,5 @@ sealed class HomeEvent {}
 final class StartQuiz extends HomeEvent {}
 
 final class EndQuiz extends HomeEvent {}
+
+final class NextQuestion extends HomeEvent {}
