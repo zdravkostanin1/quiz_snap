@@ -10,3 +10,5 @@ final class EndQuiz extends HomeEvent {}
 final class NextQuestion extends HomeEvent {}
 
 final class PreviousQuestion extends HomeEvent {}
+
+final class SkipQuestion extends HomeEvent {}

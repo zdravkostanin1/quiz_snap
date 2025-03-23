@@ -72,6 +72,9 @@ class QuizCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           GestureDetector(
+                            onTap: () {
+                              context.read<HomeBloc>().add(SkipQuestion());
+                            },
                             child: Text(
                               'SKIP',
                               style: TextStyle(

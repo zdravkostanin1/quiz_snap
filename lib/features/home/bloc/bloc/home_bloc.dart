@@ -15,6 +15,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<StartQuiz>(_onStartQuiz);
     on<NextQuestion>(_onNextQuestion);
     on<PreviousQuestion>(_onPreviousQuestion);
+    on<SkipQuestion>(_onSkipQuestion);
   }
 
   // Begin the quiz.
@@ -46,5 +47,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) {
     emit(state.copyWith(currentQuestionIndex: state.currentQuestionIndex - 1));
+  }
+
+  FutureOr<void> _onSkipQuestion(SkipQuestion event, Emitter<HomeState> emit) {
+    emit(state.copyWith(currentQuestionIndex: state.currentQuestionIndex + 1));
   }
 }
