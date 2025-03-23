@@ -21,6 +21,7 @@ class CategoriesWidget extends StatelessWidget {
                 child: Text(
                   state.quizzes[state.currentQuestionIndex].category,
                   style: TextStyle(color: Colors.white, fontSize: 15.5),
+                  maxLines: 2,
                 ),
               ),
             ),

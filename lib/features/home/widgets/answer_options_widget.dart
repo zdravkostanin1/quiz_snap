@@ -72,6 +72,7 @@ class AnswerOptionWidget extends StatelessWidget {
               child: Text(
                 answerText,
                 style: TextStyle(color: Colors.black, fontSize: 15.5),
+                maxLines: 2,
               ),
             ),
           ],
