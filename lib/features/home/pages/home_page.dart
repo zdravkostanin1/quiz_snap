@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_quiz/features/home/bloc/bloc/home_bloc.dart';
 import 'package:snap_quiz/features/home/widgets/quiz_card.dart';
 import 'package:snap_quiz/features/home/widgets/featured_collections_widget.dart';
 
@@ -7,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Color(0xffFBF8EF),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -28,7 +30,12 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 15.0),
-                QuizCard(hasBegunQuiz: false),
+                // QuizPromptCard(),
+                BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    return state.hasBegunQuiz ? QuizCard() : QuizPromptCard();
+                  },
+                ),
                 SizedBox(height: 15.0),
                 FeaturedCollections(),
               ],
