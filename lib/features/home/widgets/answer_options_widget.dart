@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:html_unescape/html_unescape.dart';
 import 'package:snap_quiz/features/home/bloc/bloc/home_bloc.dart';
 
 class AnswerOptionsWidget extends StatelessWidget {
@@ -7,6 +8,7 @@ class AnswerOptionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var unescape = HtmlUnescape();
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Column(
@@ -23,7 +25,7 @@ class AnswerOptionsWidget extends StatelessWidget {
               return Column(
                 children: [
                   AnswerOptionWidget(
-                    answerText: answer,
+                    answerText: unescape.convert(answer),
                     isCorrect:
                         answer ==
                         state.quizzes[state.currentQuestionIndex].correctAnswer,
@@ -72,7 +74,6 @@ class AnswerOptionWidget extends StatelessWidget {
               child: Text(
                 answerText,
                 style: TextStyle(color: Colors.black, fontSize: 15.5),
-                maxLines: 2,
               ),
             ),
           ],
