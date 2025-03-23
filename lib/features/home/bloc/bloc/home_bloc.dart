@@ -20,10 +20,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       Uri.parse('https://opentdb.com/api.php?amount=5&type=multiple'),
     );
     if (response.statusCode == 200) {
+      print(response.body);
       final data = jsonDecode(response.body);
       final List<dynamic> results = data['results'];
       final List<Question> questions =
           results.map((json) => Question.fromJson(json)).toList();
+
+      print(questions.first.question);
+
       emit(QuizStarted(hasBegunQuiz: true, quizzes: questions));
     }
   }

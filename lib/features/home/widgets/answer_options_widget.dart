@@ -1,39 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_quiz/features/home/bloc/bloc/home_bloc.dart';
 
 class AnswerOptionsWidget extends StatelessWidget {
   const AnswerOptionsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Options', style: TextStyle(color: Colors.white, fontSize: 17.0)),
-        SizedBox(height: 15.0),
-        AnswerOptionWidget(
-          answerText: "Naruto",
-          isCorrect: true,
-          onTap: (isCorrect) => print(isCorrect),
-        ),
-        SizedBox(height: 10.0),
-        AnswerOptionWidget(
-          answerText: "One Piece",
-          isCorrect: false,
-          onTap: (isCorrect) => print(isCorrect),
-        ),
-        SizedBox(height: 10.0),
-        AnswerOptionWidget(
-          answerText: "Dragon Ball Z",
-          isCorrect: false,
-          onTap: (isCorrect) => print(isCorrect),
-        ),
-        SizedBox(height: 10.0),
-        AnswerOptionWidget(
-          answerText: "Attack on Titan",
-          isCorrect: false,
-          onTap: (isCorrect) => print(isCorrect),
-        ),
-      ],
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Options',
+              style: TextStyle(color: Colors.white, fontSize: 17.0),
+            ),
+            SizedBox(height: 15.0),
+            ...state.quizzes[state.currentQuestionIndex].allAnswers.map((
+              answer,
+            ) {
+              return Column(
+                children: [
+                  AnswerOptionWidget(
+                    answerText: answer,
+                    isCorrect:
+                        answer ==
+                        state.quizzes[state.currentQuestionIndex].correctAnswer,
+                    onTap: (isCorrect) => print(isCorrect),
+                  ),
+                  SizedBox(height: 10.0),
+                ],
+              );
+            }),
+          ],
+        );
+      },
     );
   }
 }

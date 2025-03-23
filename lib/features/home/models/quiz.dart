@@ -43,6 +43,15 @@ class Question {
     required this.incorrectAnswers,
   });
 
+  List<String> get allAnswers {
+    final answers = [
+      ...incorrectAnswers,
+      correctAnswer,
+    ]; // Combine into one list
+    answers.shuffle(); // Randomize the order
+    return answers;
+  }
+
   factory Question.fromJson(Map<String, dynamic> json) {
     return Question(
       category: json['category'],

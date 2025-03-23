@@ -26,7 +26,7 @@ class QuizCard extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    "Question ${state.currentQuestionIndex} of ${state.quizzes.length}",
+                    "Question ${state.currentQuestionIndex + 1} of ${state.quizzes.length}",
                     style: TextStyle(color: Colors.blueGrey, fontSize: 17.0),
                   ),
                 ),
@@ -55,7 +55,7 @@ class QuizCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 3.0, right: 8.0),
                         child: Text(
-                          "In which anime series does the character Naruto Uzumaki appear?",
+                          state.quizzes[state.currentQuestionIndex].question,
                           style: TextStyle(color: Colors.white, fontSize: 15.5),
                           maxLines: 2,
                         ),

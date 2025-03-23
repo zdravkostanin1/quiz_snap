@@ -9,7 +9,7 @@ sealed class HomeState {
   const HomeState({
     this.hasBegunQuiz = false,
     this.quizzes = const [],
-    this.currentQuestionIndex = 1,
+    this.currentQuestionIndex = 0,
   });
 }
 
