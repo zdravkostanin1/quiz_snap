@@ -109,17 +109,6 @@ class QuizCard extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                // TODO: Leave Text widget, or nah?
-                                // Center(
-                                //   child: Text(
-                                //     "NEXT",
-                                //     style: TextStyle(
-                                //       color: Colors.white,
-                                //       fontSize: 15.5,
-                                //       fontWeight: FontWeight.bold,
-                                //     ),
-                                //   ),
-                                // ),
                                 Icon(
                                   LucideIcons.arrowRight,
                                   color: Colors.white,
