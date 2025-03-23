@@ -4,3 +4,5 @@ part of 'home_bloc.dart';
 sealed class HomeEvent {}
 
 final class StartQuiz extends HomeEvent {}
+
+final class EndQuiz extends HomeEvent {}
