@@ -81,20 +81,25 @@ class QuizCard extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 20),
-                          Container(
-                            width: 80,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "BACK",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15.5,
-                                  fontWeight: FontWeight.bold,
+                          GestureDetector(
+                            onTap: () {
+                              context.read<HomeBloc>().add(PreviousQuestion());
+                            },
+                            child: Container(
+                              width: 80,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "BACK",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15.5,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
