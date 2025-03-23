@@ -16,6 +16,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   // Begin the quiz.
   FutureOr<void> _onStartQuiz(StartQuiz event, Emitter<HomeState> emit) async {
+    // Fetch the quiz questions from OPENTDB API.
     final response = await http.get(
       Uri.parse('https://opentdb.com/api.php?amount=5&type=multiple'),
     );
@@ -28,6 +29,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       print(questions.first.question);
 
+      // Emit the QuizStarted state with the fetched questions.
       emit(QuizStarted(hasBegunQuiz: true, quizzes: questions));
     }
   }
