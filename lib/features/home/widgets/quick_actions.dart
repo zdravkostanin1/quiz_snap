@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class QuickActions extends StatelessWidget {
-  final bool hasBegunQuiz;
-  const QuickActions({super.key, required this.hasBegunQuiz});
+  const QuickActions({super.key});
 
   @override
   Widget build(BuildContext context) {
