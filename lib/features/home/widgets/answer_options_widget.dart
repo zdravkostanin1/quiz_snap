@@ -11,6 +11,10 @@ class AnswerOptionsWidget extends StatelessWidget {
     var unescape = HtmlUnescape();
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
+        final currentQuestion = state.quizzes[state.currentQuestionIndex];
+        final selectedAnswer =
+            state.selectedAnswers[state.currentQuestionIndex];
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -19,17 +23,19 @@ class AnswerOptionsWidget extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 17.0),
             ),
             SizedBox(height: 15.0),
-            ...state.quizzes[state.currentQuestionIndex].allAnswers.map((
+            ...currentQuestion.allAnswers.map((
               answer,
             ) {
               return Column(
                 children: [
                   AnswerOptionWidget(
                     answerText: unescape.convert(answer),
-                    isCorrect:
-                        answer ==
-                        state.quizzes[state.currentQuestionIndex].correctAnswer,
-                    onTap: (isCorrect) => print(isCorrect),
+                    isSelected: selectedAnswer == answer,
+                    onTap: () {
+                      context
+                          .read<HomeBloc>()
+                          .add(SelectAnswer(answer));
+                    },
                   ),
                   SizedBox(height: 10.0),
                 ],
@@ -44,33 +50,39 @@ class AnswerOptionsWidget extends StatelessWidget {
 
 class AnswerOptionWidget extends StatelessWidget {
   final String answerText;
-  final bool isCorrect;
-  final Function onTap;
+  final bool isSelected;
+  final VoidCallback onTap;
 
   const AnswerOptionWidget({
     super.key,
     required this.answerText,
-    required this.isCorrect,
+    required this.isSelected,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap(isCorrect),
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         height: 50,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isSelected ? Color(0xffA9B5DF) : Colors.white,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Radio(value: false, groupValue: [], onChanged: (value) {}),
+            Radio(
+              value: isSelected,
+              groupValue: true,
+              onChanged: (value) {
+                onTap();
+              },
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 0.0, top: 12.0),
+              padding: const EdgeInsets.only(top: 12.0),
               child: Text(
                 answerText,
                 style: TextStyle(color: Colors.black, fontSize: 15.5),

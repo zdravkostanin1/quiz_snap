@@ -110,20 +110,38 @@ class QuizCard extends StatelessWidget {
                           SizedBox(width: 20),
                           GestureDetector(
                             onTap: () {
-                              context.read<HomeBloc>().add(NextQuestion());
+                              if (state.currentQuestionIndex <
+                                  state.quizzes.length - 1) {
+                                context.read<HomeBloc>().add(NextQuestion());
+                              } else {
+                                context.read<HomeBloc>().add(EndQuiz());
+                              }
                             },
                             child: Container(
                               width: 130,
                               height: 50,
                               decoration: BoxDecoration(
-                                color: Color(
-                                  0xffA9B5DF,
-                                ), // TODO: When an answer is selected, change color to a brighther blue
+                                color: state.selectedAnswers
+                                        .containsKey(state.currentQuestionIndex)
+                                    ? Color(0xffA9B5DF)
+                                    : Color(0xff8E9AB3),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Text(
+                                    state.currentQuestionIndex <
+                                            state.quizzes.length - 1
+                                        ? 'NEXT'
+                                        : 'FINISH',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15.5,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
                                   Icon(
                                     LucideIcons.arrowRight,
                                     color: Colors.white,

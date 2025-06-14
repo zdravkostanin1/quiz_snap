@@ -11,7 +11,7 @@ class QuizPromptCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 0.0, left: 0, right: 30.0),
       child: Container(
         width: double.infinity,
-        height: 525,
+        height: 800,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.circular(20),
@@ -21,13 +21,12 @@ class QuizPromptCard extends StatelessWidget {
           children: [
             Text(
               "Are you ready to learn today?",
-              style: TextStyle(color: Colors.white, fontSize: 15.0),
+              style: TextStyle(color: Colors.white, fontSize: 16.0),
             ),
             SizedBox(height: 20.0),
             Image.asset('assets/images/chick.png', width: 150.0, height: 150.0),
             SizedBox(height: 20.0),
             GestureDetector(
-              // TODO: Implement
               onTap: () {
                 context.read<HomeBloc>().add(StartQuiz());
               },
@@ -51,28 +50,6 @@ class QuizPromptCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20.0),
-            GestureDetector(
-              // TODO: Implement
-              onTap: () {},
-              child: Container(
-                width: 250,
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Color(0xffFFB22C),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Center(
-                  child: Text(
-                    "SEE ALL COLLECTIONS",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15.5,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),
