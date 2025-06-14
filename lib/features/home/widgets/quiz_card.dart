@@ -85,14 +85,20 @@ class QuizCard extends StatelessWidget {
                           ),
                           SizedBox(width: 20),
                           GestureDetector(
-                            onTap: () {
-                              context.read<HomeBloc>().add(PreviousQuestion());
-                            },
+                            onTap: state.currentQuestionIndex > 0
+                                ? () {
+                                    context
+                                        .read<HomeBloc>()
+                                        .add(PreviousQuestion());
+                                  }
+                                : null,
                             child: Container(
                               width: 80,
                               height: 40,
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: state.currentQuestionIndex > 0
+                                    ? Colors.white
+                                    : Colors.grey,
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Center(
